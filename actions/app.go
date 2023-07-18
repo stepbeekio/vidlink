@@ -3,7 +3,6 @@ package actions
 import (
 	"net/http"
 	"sync"
-
 	"vidlink/locales"
 	"vidlink/models"
 	"vidlink/public"
@@ -67,8 +66,11 @@ func App() *buffalo.App {
 
 		app.GET("/", HomeHandler)
 
+		app.Resource("/videos", VideosResource{})
 		app.ServeFiles("/", http.FS(public.FS())) // serve files from the public directory
 	})
+
+	go models.VideoSchedule()
 
 	return app
 }

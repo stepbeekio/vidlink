@@ -1,0 +1,6 @@
+- id: "video.created.success"
+  translation: "Video was successfully created."
+- id: "video.updated.success"
+  translation: "Video was successfully updated."
+- id: "video.destroyed.success"
+  translation: "Video was successfully destroyed."

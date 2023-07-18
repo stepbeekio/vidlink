@@ -1,0 +1,42 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">New Video</h3>
+</div>
+
+<%= formFor(video, {action: videosPath(), method: "POST", id: "upload-form"}) { %>
+  <%= partial("videos/form.html") %>
+  <%= linkTo(videosPath(), {class: "btn btn-warning", "data-confirm": "Are you sure?", body: "Cancel"}) %>
+<% } %>
+
+<progress value="0" id="progress">0%</progress>
+
+
+<script>
+  const form = document.getElementById('upload-form');
+  const progressBar = document.getElementById('progress');
+
+  form.addEventListener('submit', e => {
+    console.log('Uploading...')
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '<%= videosPath() %>', true);
+    xhr.upload.onprogress = e => {
+      if (e.lengthComputable) {
+        const percentComplete = (e.loaded / e.total) * 100;
+        progressBar.innerHTML = `${percentComplete}%`;
+        progressBar.value = percentComplete;
+      }
+    };
+    xhr.onloadend = e => {
+      if (xhr.responseURL !== '<%= videosPath() %>') {
+        window.location.href = xhr.responseURL
+      }
+    };
+
+    xhr.send(formData);
+
+
+  });
+</script>

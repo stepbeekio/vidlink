@@ -1,0 +1,25 @@
+<div class="py-4 mb-2">
+    <header>
+    <h3 class="d-inline-block"><%= video.Name %></h3>
+
+    </header>
+    <%= if (video.Processed) { %>
+
+    <video id="video" controls autoplay></video>
+
+    <script defer>
+        var video = document.getElementById('video');
+        var videoSrc = '<%= video_link %>';
+
+        if (window.Hls.isSupported()) {
+            var hls = new window.Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = videoSrc;
+        }
+    </script>
+    <% } else { %>
+    <p>Video is still being processed. Please wait...</p>
+    <% } %>
+</div>

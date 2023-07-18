@@ -2172,6 +2172,7 @@ __metadata:
     file-loader: ~6.0.0
     glob: ^7.2.0
     gopherjs-loader: ^0.0.1
+    hls.js: ^1.4.9
     jquery: ^3.6.0
     jquery-ujs: ^1.2.2
     mini-css-extract-plugin: ^2.0.0
@@ -3195,6 +3196,13 @@ __metadata:
   dependencies:
     function-bind: ^1.1.1
   checksum: b9ad53d53be4af90ce5d1c38331e712522417d017d5ef1ebd0507e07c2fbad8686fffb8e12ddecd4c39ca9b9b47431afbb975b8abf7f3c3b82c98e9aad052792
+  languageName: node
+  linkType: hard
+
+"hls.js@npm:^1.4.9":
+  version: 1.4.9
+  resolution: "hls.js@npm:1.4.9"
+  checksum: 51e469eb99e7093a1b71a7531731d9da8609104730f1030797d25c4e25d9d7d8a6d22603921cb9a9ee6ab26b28c569e91c68a37be92dc1f34bc58e0c5af65b99
   languageName: node
   linkType: hard
 

@@ -1,0 +1,33 @@
+<div class="py-4 mb-2">
+  <h3 class="d-inline-block">Videos</h3>
+  <div class="float-end">
+    <%= linkTo(newVideosPath(), {class: "btn btn-primary"}) { %>
+      Create New Video
+    <% } %>
+  </div>
+</div>
+
+<table class="table table-hover table-bordered">
+  <thead class="thead-light">
+    <th>Name</th><th>Processed</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (video) in videos { %>
+      <tr>
+        <td class="align-middle"><%= video.Name %></td><td class="align-middle"><%= video.Processed %></td>
+        <td>
+          <div class="float-end">
+            <%= linkTo(videoPath({ video_id: video.ID }), {class: "btn btn-info", body: "View"}) %>
+            <%= linkTo(editVideoPath({ video_id: video.ID }), {class: "btn btn-warning", body: "Edit"}) %>
+            <%= linkTo(videoPath({ video_id: video.ID }), {class: "btn btn-danger", "data-method": "DELETE", "data-confirm": "Are you sure?", body: "Destroy"}) %>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

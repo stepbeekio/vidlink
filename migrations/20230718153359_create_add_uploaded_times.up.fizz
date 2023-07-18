@@ -1,0 +1,1 @@
+add_column("videoes", "uploaded_at", "timestamp", {null: true})
