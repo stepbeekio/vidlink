@@ -1,6 +1,14 @@
-# Welcome to Buffalo
+# Vidlink
 
-Thank you for choosing Buffalo for your web development needs.
+A small project to try out golang and buffalo. The system allows users to upload a video at /videos/new, runs a batch job 
+in the background to HLS for a handful of resolutions, then allows users to share the unique url of the video. 
+
+You can see the production app at https://coral-app-oyzm5.ondigitalocean.app/
+
+A demo video can be found here: https://coral-app-oyzm5.ondigitalocean.app/videos/be9047b8-65c5-49eb-b9c6-78509a2f53b7
+
+There is almost no effort put into making this app safe. Use at your peril!!!
+
 
 ## Database Setup
 

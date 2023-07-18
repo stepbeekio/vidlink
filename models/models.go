@@ -293,7 +293,7 @@ func ConvertVideo(inputFile string, outputDir string) error {
 	resolutions := []string{"480x270", "640x360", "1280x720", "1920x1080"}
 
 	for _, resolution := range resolutions {
-		outputPath := fmt.Sprintf("%s/quality_%d.m3u8", outputDir, resolution)
+		outputPath := fmt.Sprintf("%s/quality_%s.m3u8", outputDir, resolution)
 
 		//ffmpeg -i /var/folders/12/f70bt57x0rx34jk7l3r526_00000gn/T/downloaded_file_1356103922.tmp -c:v libx264 -c:a aac -strict -2 -f hls -hls_time 10 -hls_list_size 0 /var/folders/12/f70bt57x0rx34jk7l3r526_00000gn/T//cac586d2-653a-4501-8601-6170cd0d018a/480x270.m3u8
 

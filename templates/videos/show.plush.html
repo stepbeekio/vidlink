@@ -1,12 +1,22 @@
 <div class="py-4 mb-2">
     <header>
-    <h3 class="d-inline-block"><%= video.Name %></h3>
+        <h3 class="d-inline-block"><%= video.Name %></h3>
+
+        <div>
+            <%= for (resolution) in resolutions { %>
+            <%= if (current_resolution == resolution) { %>
+            <span><%= resolution %></span>
+            <% } else { %>
+            <span><a href="?resolution=<%= resolution %>" class="text-gray-600"><%= resolution %></a></span>
+            <% } } %>
+        </div>
 
     </header>
     <%= if (video.Processed) { %>
 
-    <video id="video" controls autoplay></video>
-
+    <div class="w-full">
+        <video id="video" controls autoplay></video>
+    </div>
     <script defer>
         var video = document.getElementById('video');
         var videoSrc = '<%= video_link %>';

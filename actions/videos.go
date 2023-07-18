@@ -80,7 +80,15 @@ func (v VideosResource) Show(c buffalo.Context) error {
 		return c.Error(http.StatusNotFound, err)
 	}
 
-	videoUrl := fmt.Sprintf("%d/%d/quality_%d.m3u8", os.Getenv("SPACES_CDN_URL"), video.ID.String(), "1920x1080")
+	resolution := c.Param("resolution")
+	if resolution == "" {
+		resolution = "1280x720"
+	}
+
+	c.Set("current_resolution", resolution)
+	c.Set("resolutions", []string{"480x270", "640x360", "1280x720", "1920x1080"})
+
+	videoUrl := fmt.Sprintf("%s/%s/quality_%s.m3u8", os.Getenv("SPACES_CDN_URL"), video.ID.String(), "1280x720")
 
 	c.Set("video_link", videoUrl)
 
