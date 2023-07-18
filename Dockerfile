@@ -26,6 +26,9 @@ RUN buffalo build --static -o /bin/app
 FROM alpine
 RUN apk add --no-cache bash
 RUN apk add --no-cache ca-certificates
+RUN apk update
+RUN apk upgrade
+RUN apk add --no-cache ffmpeg
 
 WORKDIR /bin/
 
