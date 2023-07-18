@@ -3,7 +3,9 @@
 A small project to try out golang and buffalo. The system allows users to upload a video at /videos/new, runs a batch job 
 in the background to HLS for a handful of resolutions, then allows users to share the unique url of the video. 
 
-You can see the production app at https://coral-app-oyzm5.ondigitalocean.app/
+You can see the production app at https://coral-app-oyzm5.ondigitalocean.app/ unfortunately, it's hosted on a PaaS product 
+by DigitalOcean that has less CPU horsepower than a gameboy color. If I have time, then I'll use mrsk to deploy it to 
+a bare metal server with sufficient CPU to encode videos quickly. 
 
 A demo video can be found here: https://coral-app-oyzm5.ondigitalocean.app/videos/be9047b8-65c5-49eb-b9c6-78509a2f53b7
 
